@@ -78,8 +78,7 @@ def calculate_dew_point(temperature, relative_humidity):
     Notes
     -----
     This uses the Magnus formula approximation:
-    Td = (b * α(T,RH)) / (a - α(T,RH))
-    where α(T,RH) = (a * T)/(b + T) + ln(RH/100)
+    
     
     a = 17.27, b = 237.7°C for water
     """

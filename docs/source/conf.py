@@ -59,7 +59,7 @@ html_theme_options = {
 }
 
 # HTML static path
-html_static_path = ['_static']
+html_static_path = []
 
 # Output file base name for HTML help builder
 htmlhelp_basename = 'WeatherToolsdoc'
