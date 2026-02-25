@@ -1,5 +1,0 @@
-# Documentation dependencies
-sphinx>=5.0
-sphinx-rtd-theme>=1.0
-nbsphinx>=0.8
-myst-parser>=0.18
