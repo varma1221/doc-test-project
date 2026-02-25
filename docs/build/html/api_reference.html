@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Reference &#8212; Weather Tools 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Quickstart Guide" href="quickstart.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<section id="module-weather_tools.calculations">
+<span id="calculations-module"></span><h2>Calculations Module<a class="headerlink" href="#module-weather_tools.calculations" title="Link to this heading">¶</a></h2>
+<section id="weather-calculation-functions">
+<h3>Weather Calculation Functions<a class="headerlink" href="#weather-calculation-functions" title="Link to this heading">¶</a></h3>
+<p>This module contains mathematical functions for weather conversions and calculations.
+All functions include detailed docstrings for documentation practice.</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.calculations.calculate_dew_point">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.calculations.</span></span><span class="sig-name descname"><span class="pre">calculate_dew_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_humidity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/calculations.html#calculate_dew_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.calculations.calculate_dew_point" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate dew point temperature using the Magnus formula.</p>
+<p>The dew point is the temperature at which air becomes saturated
+with water vapor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperature</strong> (<em>float</em>) – Air temperature in degrees Celsius</p></li>
+<li><p><strong>relative_humidity</strong> (<em>float</em>) – Relative humidity as a percentage (0-100)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dew point temperature in degrees Celsius</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This uses the Magnus formula approximation:
+Td = (b * α(T,RH)) / (a - α(T,RH))
+where α(T,RH) = (a * T)/(b + T) + ln(RH/100)</p>
+<p>a = 17.27, b = 237.7°C for water</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.calculations.celsius_to_fahrenheit">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.calculations.</span></span><span class="sig-name descname"><span class="pre">celsius_to_fahrenheit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">celsius</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/calculations.html#celsius_to_fahrenheit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.calculations.celsius_to_fahrenheit" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Celsius to Fahrenheit.</p>
+<p>This is a basic temperature conversion function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>celsius</strong> (<em>float</em>) – Temperature in degrees Celsius</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Temperature in degrees Fahrenheit</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">32.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="go">212.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.calculations.fahrenheit_to_celsius">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.calculations.</span></span><span class="sig-name descname"><span class="pre">fahrenheit_to_celsius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fahrenheit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/calculations.html#fahrenheit_to_celsius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.calculations.fahrenheit_to_celsius" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Fahrenheit to Celsius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fahrenheit</strong> (<em>float</em>) – Temperature in degrees Fahrenheit</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Temperature in degrees Celsius</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fahrenheit_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fahrenheit_to_celsius</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="go">100.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.calculations.heat_index">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.calculations.</span></span><span class="sig-name descname"><span class="pre">heat_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_humidity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/calculations.html#heat_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.calculations.heat_index" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate heat index (apparent temperature).</p>
+<p>The heat index combines air temperature and relative humidity
+to determine the human-perceived equivalent temperature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperature</strong> (<em>float</em>) – Air temperature in degrees Fahrenheit (must be above 70°F)</p></li>
+<li><p><strong>relative_humidity</strong> (<em>float</em>) – Relative humidity as a percentage</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Heat index in degrees Fahrenheit</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This formula is valid only for temperatures above 70°F (21°C).
+For lower temperatures, the heat index is not defined.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.calculations.wind_chill">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.calculations.</span></span><span class="sig-name descname"><span class="pre">wind_chill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/calculations.html#wind_chill"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.calculations.wind_chill" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate wind chill temperature.</p>
+<p>Wind chill accounts for the cooling effect of wind on exposed skin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperature</strong> (<em>float</em>) – Air temperature in degrees Fahrenheit</p></li>
+<li><p><strong>wind_speed</strong> (<em>float</em>) – Wind speed in miles per hour</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wind chill temperature in degrees Fahrenheit</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Wind chill is only defined for temperatures below 50°F (10°C)
+and wind speeds above 3 mph.</p>
+</dd></dl>
+
+</section>
+<section id="module-weather_tools.visualization">
+<span id="visualization-module"></span><h2>Visualization Module<a class="headerlink" href="#module-weather_tools.visualization" title="Link to this heading">¶</a></h2>
+<section id="weather-visualization-functions">
+<h3>Weather Visualization Functions<a class="headerlink" href="#weather-visualization-functions" title="Link to this heading">¶</a></h3>
+<p>Simple functions to display weather data in text format.</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.visualization.plot_temperature_trend">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.visualization.</span></span><span class="sig-name descname"><span class="pre">plot_temperature_trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperatures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Temperature</span> <span class="pre">Trend'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/visualization.html#plot_temperature_trend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.visualization.plot_temperature_trend" title="Link to this definition">¶</a></dt>
+<dd><p>Create a simple ASCII chart of temperature over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperatures</strong> (<em>list</em><em> of </em><em>float</em>) – List of temperature values</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – Title for the chart (default: “Temperature Trend”)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted ASCII chart</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">temps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">plot_temperature_trend</span><span class="p">(</span><span class="n">temps</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weather_tools.visualization.print_weather_summary">
+<span class="sig-prename descclassname"><span class="pre">weather_tools.visualization.</span></span><span class="sig-name descname"><span class="pre">print_weather_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weather_tools/visualization.html#print_weather_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#weather_tools.visualization.print_weather_summary" title="Link to this definition">¶</a></dt>
+<dd><p>Print a nicely formatted weather summary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location</strong> (<em>str</em>) – Name of the location</p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – Current temperature in Celsius</p></li>
+<li><p><strong>conditions</strong> (<em>str</em>) – Weather conditions description</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted weather summary</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">print_weather_summary</span><span class="p">(</span><span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="s2">&quot;Partly Cloudy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Weather Tools</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-weather_tools.calculations">Calculations Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-weather_tools.visualization">Visualization Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickstart.html" title="previous chapter">Quickstart Guide</a></li>
+      <li>Next: <a href="contributing.html" title="next chapter">Contributing</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Penmatsa Tanoj Pavan Surya Varma.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/api_reference.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

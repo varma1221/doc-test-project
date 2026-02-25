@@ -1,0 +1,33 @@
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 2
+
+# Set the OS, Python version, and other tools
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
+  jobs:
+    pre_build:
+      # Install your package so autodoc can find it
+      - pip install -e .
+
+# Build documentation with Sphinx
+sphinx:
+  configuration: docs/source/conf.py
+  fail_on_warning: true
+
+# Optional: Build PDF and ePub
+formats:
+  - pdf
+  - epub
+
+# Python dependencies
+python:
+  install:
+    - method: pip
+      path: .
+    - requirements: docs/requirements.txt
